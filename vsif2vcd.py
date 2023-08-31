@@ -497,7 +497,7 @@ def main():
         path = f"{_args.out}/names.txt"
         _print(f"Saving names to {path}")
         with open(path, "w") as f:
-            f.write("\r\n".join(names))
+            f.write("\n".join(names))
 
     _dbg("Calculating CRCs")
     crc_to_name = {calculate_valve_crc32(name): name for name in names}
@@ -549,8 +549,8 @@ def main():
             n_decompiled += 1
             _dbg("Saving to file")
             os.makedirs(os.path.dirname(outpath), exist_ok=True)
-            with open(outpath, "w") as f:
-                f.write(vcd)
+            with open(outpath, "wb") as f:
+                f.write(vcd.encode())
 
     _print(f"Finished!")
     _print(f"Decompiled: {format_fraction(n_decompiled, n_scenes)}")
