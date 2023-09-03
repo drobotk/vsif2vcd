@@ -1,3 +1,4 @@
 *scenes.image
 *.code-workspace
 *.pyc
+*.vcd
